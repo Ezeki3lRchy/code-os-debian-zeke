@@ -1,6 +1,6 @@
 services:
   os:
-    image: jamescurtisfoxmail/code-os:latest-gpu
+    image: ezeki3lrchy/code-os:latest-gpu
     deploy:
       resources:
         reservations:

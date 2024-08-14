@@ -1,11 +1,11 @@
-name: code-os-debian
+name: code-os-debian-test
 services:
   os:
-    image: ezeki3lrchy/code-os
+    image: jamescurtisfoxmail/code-os
     volumes:
       - ~/.ssh:/home/linux/.ssh:rw
-      - home-data:/home/linux:rw
-      - os-data:/mnt/data:rw
+      - home-data-test:/home/linux:rw
+      - os-data-test:/mnt/data:rw
       - ~/workspace:/mnt/workspace:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - /var/run/docker.sock:/var/run/docker.sock
@@ -13,5 +13,5 @@ services:
     privileged: true
 
 volumes:
-  os-data:
-  home-data:
+  os-data-test:
+  home-data-test:
