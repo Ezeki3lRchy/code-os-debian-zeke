@@ -2,6 +2,13 @@ name: code-os-debian
 services:
   os:
     image: ezeki3lrchy/code-os
+    user: root
+    command:
+      - sh
+      - -c
+      - "service ssh start && tail -f /etc/passwd"
+    ports:
+      - 65534:65534
     volumes:
       - ~/.ssh:/home/linux/.ssh:rw
       - home-data:/home/linux:rw
@@ -9,7 +16,7 @@ services:
       - ~/workspace:/mnt/workspace:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: "host"
+        # network_mode: "host"
     privileged: true
 
 volumes:

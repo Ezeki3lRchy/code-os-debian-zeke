@@ -1,0 +1,4 @@
+sudo service ssh status
+sudo netstat -tuln | grep 65534
+sudo service ssh restart
+sudo netstat -tuln

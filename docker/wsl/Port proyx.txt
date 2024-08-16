@@ -1,0 +1,15 @@
+# Remove the old port proxy rules NOTE:run in windows
+netsh interface portproxy delete v4tov4 listenport=65534 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=22 listenaddress=0.0.0.0
+
+# Get the new WSL2 IP address using PowerShell
+$wslIp = wsl hostname -I | ForEach-Object { $_.Trim() }
+
+# Add the new port proxy rules
+netsh interface portproxy add v4tov4 listenport=65534 listenaddress=0.0.0.0 connectaddress=$wslIp connectport=65534
+netsh interface portproxy add v4tov4 listenport=22 listenaddress=0.0.0.0 connectaddress=$wslIp connectport=22
+
+
+netsh interface portproxy add v4tov4 listenport=65534 listenaddress=0.0.0.0 connectaddress=172.23.58.42 connectport=65534
+
+netsh interface portproxy show alldock
