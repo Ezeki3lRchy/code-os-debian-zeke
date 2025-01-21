@@ -14,10 +14,10 @@ if [ -z "$CONTAINER_ID" ]; then
 fi
 
 # Define the source and destination paths
-SOURCE_PATH="/mnt/c/project_IHCP/dataset_ptrh_constant"
+SOURCE_PATH="/mnt/c/project_IHCP/dataset_ptrh_sin"
 
 
-DEST_PATH="/home/linux/IHCPs/dataset_ptrh_constant"
+DEST_PATH="/home/linux/IHCPs/dataset_ptrh_sin_1000"
 
 # Copy the dataset to the container
 docker cp "${SOURCE_PATH}" "${CONTAINER_ID}:${DEST_PATH}"
